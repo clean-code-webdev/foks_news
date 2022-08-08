@@ -24,12 +24,25 @@ section#content {
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  width: 100rem;
+  width: 100%;
+}
+@media screen and (min-width: 1050px) {
+  section#content {
+    width: 100rem;
+  }
 }
 section#content #top-nav {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  section#content #top-nav {
+    flex-direction: row;
+  }
 }
 section#content #top-nav #left ul,
 section#content #top-nav #right ul {
@@ -94,9 +107,14 @@ section#content #website-name .flag span:nth-of-type(2) {
   background: #002868;
 }
 section#content #website-name h1 {
-  font-size: 10rem;
+  font-size: 5rem;
   text-align: center;
   color: #002868;
+}
+@media screen and (min-width: 768px) {
+  section#content #website-name h1 {
+    font-size: 10rem;
+  }
 }
 section#content #add {
   width: 100%;
@@ -111,10 +129,23 @@ section#content #main-nav {
   width: 100%;
   background: #000;
   padding: 1rem 2rem;
+  overflow-x: auto;
+}
+section#content #main-nav::-webkit-scrollbar {
+  height: 0.5rem;
+  background: rgb(255, 255, 255);
+}
+section#content #main-nav::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0);
+}
+section#content #main-nav::-webkit-scrollbar-thumb {
+  background-color: #002868;
+  outline: 1px solid #ffffff;
 }
 section#content #main-nav ul {
   display: flex;
   justify-content: space-between;
+  gap: 2rem;
 }
 section#content #main-nav ul .active {
   border-top: 0.2rem solid #fff;
@@ -131,10 +162,20 @@ section#content #main-nav ul li {
   padding: 0.5rem 0;
 }
 section#content #main {
-  width: 100rem;
   display: grid;
-  grid-template-columns: 2.5fr 1fr;
+  grid-template-columns: 1fr;
   gap: 3rem;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  section#content #main {
+    grid-template-columns: 2.5fr 1fr;
+  }
+}
+@media screen and (min-width: 1050px) {
+  section#content #main {
+    width: 100rem;
+  }
 }
 section#content #main #left {
   width: 100%;
@@ -145,14 +186,25 @@ section#content #main #left {
 section#content #main #left #one {
   width: 100%;
   display: flex;
+  flex-direction: column;
   gap: 2rem;
+}
+@media screen and (min-width: 768px) {
+  section#content #main #left #one {
+    flex-direction: row;
+  }
 }
 section#content #main #left #one #big {
   width: 100%;
-  max-width: 66.6666666667%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+  section#content #main #left #one #big {
+    max-width: 66.6666666667%;
+  }
 }
 section#content #main #left #one #big #img {
   width: 100%;
@@ -187,11 +239,17 @@ section#content #main #left #one #big p#date {
 }
 section#content #main #left #one #small {
   width: 100%;
-  max-width: 33.3333333333%;
   display: flex;
-  flex-direction: column;
   gap: 2rem;
   justify-content: space-between;
+  max-width: 100%;
+  flex-direction: row;
+}
+@media screen and (min-width: 768px) {
+  section#content #main #left #one #small {
+    max-width: 33.3333333333%;
+    flex-direction: column;
+  }
 }
 section#content #main #left #one #small .news {
   width: 100%;
@@ -240,19 +298,28 @@ section#content #main #left #two #filter ul li {
   width: 100%;
   list-style: none;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 0.5rem 0;
   border: 0.1rem solid #000;
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
 }
+@media screen and (min-width: 768px) {
+  section#content #main #left #two #filter ul li {
+    font-size: 1.2rem;
+  }
+}
 section#content #main #left #two .news {
   display: grid;
-  grid-template-columns: 1fr 2fr;
   gap: 2rem;
   width: 100%;
-  height: 15rem;
+  grid-template-columns: 1fr;
+}
+@media screen and (min-width: 768px) {
+  section#content #main #left #two .news {
+    grid-template-columns: 1fr 2fr;
+  }
 }
 section#content #main #left #two .news #img {
   width: 100%;
@@ -292,7 +359,7 @@ section#content #main #right {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 2rem;
 }
 section#content #main #right .square {
   width: 100%;
@@ -314,6 +381,14 @@ section#content #main #right .square #img img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+section#content #main #right .tablet-view-add {
+  display: none;
+}
+@media screen and (min-width: 768px) and (max-width: 1050px) {
+  section#content #main #right .tablet-view-add {
+    display: flex;
+  }
 }
 section#content #main #right #authors {
   width: 100%;
@@ -371,12 +446,26 @@ section#content #gallery #main-image img {
 section#content #gallery #thumbnails {
   display: flex;
   gap: 1rem;
+  overflow-x: auto;
+}
+section#content #gallery #thumbnails::-webkit-scrollbar {
+  height: 0.5rem;
+  background: rgb(255, 255, 255);
+}
+section#content #gallery #thumbnails::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0);
+}
+section#content #gallery #thumbnails::-webkit-scrollbar-thumb {
+  background-color: #002868;
+  outline: 1px solid #ffffff;
 }
 section#content #gallery #thumbnails .thumbnail {
+  min-width: 10rem;
   width: 100%;
   height: 10rem;
   cursor: pointer;
   overflow: hidden;
+  margin-bottom: 0.5rem;
 }
 section#content #gallery #thumbnails .thumbnail:hover img {
   transform: scale(1.2);
@@ -388,110 +477,131 @@ section#content #gallery #thumbnails .thumbnail img {
   -o-object-fit: cover;
      object-fit: cover;
 }
-section#content #foo {
+section#content #weather-section {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
-section#content #foo h2#title {
+section#content #weather-section h2#title {
   font-size: 2.3rem;
   font-weight: 800;
 }
-section#content #foo #news-holder {
+section#content #weather-section #news-holder {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
-section#content #foo #news-holder .bar {
+@media screen and (min-width: 768px) {
+  section#content #weather-section #news-holder {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+section#content #weather-section #news-holder .bar {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-section#content #foo #news-holder .bar #img {
+section#content #weather-section #news-holder .bar #img {
   height: 15rem;
   width: 100%;
   cursor: pointer;
 }
-section#content #foo #news-holder .bar #img img {
+section#content #weather-section #news-holder .bar #img img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-section#content #foo #news-holder .bar h2#headline {
+section#content #weather-section #news-holder .bar h2#headline {
   font-size: 2.3rem;
   font-weight: 800;
   text-transform: capitalize;
   cursor: pointer;
 }
-section#content #foo #news-holder .bar p#subtitle {
+section#content #weather-section #news-holder .bar p#subtitle {
   font-size: 1.4rem;
   line-height: 2rem;
   cursor: pointer;
 }
-section#content #foo #news-holder .bar p#date {
+section#content #weather-section #news-holder .bar p#date {
   font-size: 1.3rem;
   color: gray;
   text-transform: capitalize;
   cursor: pointer;
 }
-section#content #ace {
+section#content #food-section {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
-section#content #ace h2#title {
+section#content #food-section h2#title {
   font-size: 2.3rem;
   font-weight: 800;
 }
-section#content #ace #news-holder {
+section#content #food-section #news-holder {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
-section#content #ace #news-holder .bar {
+@media screen and (min-width: 768px) {
+  section#content #food-section #news-holder {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+section#content #food-section #news-holder .bar {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-section#content #ace #news-holder .bar #img {
+section#content #food-section #news-holder .bar #img {
   height: 20rem;
   width: 100%;
   cursor: pointer;
 }
-section#content #ace #news-holder .bar #img img {
+section#content #food-section #news-holder .bar #img img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-section#content #ace #news-holder .bar h2#headline {
+section#content #food-section #news-holder .bar h2#headline {
   font-size: 2.3rem;
   font-weight: 800;
   text-transform: capitalize;
   cursor: pointer;
 }
-section#content #ace #news-holder .bar p#subtitle {
+section#content #food-section #news-holder .bar p#subtitle {
   font-size: 1.4rem;
   line-height: 2rem;
   cursor: pointer;
 }
-section#content #ace #news-holder .bar p#date {
+section#content #food-section #news-holder .bar p#date {
   font-size: 1.3rem;
   color: gray;
   text-transform: capitalize;
   cursor: pointer;
 }
 section#content footer {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 3rem;
   background: #000;
   color: #fff;
   padding: 1rem;
+}
+@media screen and (min-width: 768px) {
+  section#content footer {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (min-width: 1050px) {
+  section#content footer {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 section#content footer .holder {
   display: flex;
@@ -505,9 +615,14 @@ section#content footer .holder h2 {
 }
 section#content footer .holder ul {
   cursor: pointer;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  section#content footer .holder ul {
+    display: flex;
+  }
 }
 section#content footer .holder ul li {
   font-size: 1.3rem;

@@ -25,12 +25,24 @@ section#content {
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  width: 100rem;
+  width: 100%;
+
+  @media screen and(min-width: 1050px) {
+    width: 100rem;
+  }
 
   #top-nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    @media screen and(min-width: 768px) {
+      flex-direction: row;
+    }
 
     #left,
     #right {
@@ -112,9 +124,13 @@ section#content {
       }
     }
     h1 {
-      font-size: 10rem;
+      font-size: 5rem;
       text-align: center;
       color: #002868;
+
+      @media screen and (min-width: 768px) {
+        font-size: 10rem;
+      }
     }
   }
 
@@ -132,10 +148,26 @@ section#content {
     width: 100%;
     background: #000;
     padding: 1rem 2rem;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      height: 0.5rem;
+      background: rgb(255, 255, 255);
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 1px rgba(255, 255, 255, 0);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #002868;
+      outline: 1px solid #ffffff;
+    }
 
     ul {
       display: flex;
       justify-content: space-between;
+      gap: 2rem;
 
       .active {
         border-top: 0.2rem solid #fff;
@@ -156,10 +188,18 @@ section#content {
   }
 
   #main {
-    width: 100rem;
     display: grid;
-    grid-template-columns: 2.5fr 1fr;
+    grid-template-columns: 1fr;
     gap: 3rem;
+    width: 100%;
+
+    @media screen and(min-width: 768px) {
+      grid-template-columns: 2.5fr 1fr;
+    }
+
+    @media screen and(min-width: 1050px) {
+      width: 100rem;
+    }
 
     #left {
       width: 100%;
@@ -170,14 +210,23 @@ section#content {
       #one {
         width: 100%;
         display: flex;
+        flex-direction: column;
         gap: 2rem;
+
+        @media screen and(min-width: 768px) {
+          flex-direction: row;
+        }
 
         #big {
           width: 100%;
-          max-width: calc(100% / 3 * 2);
           display: flex;
           flex-direction: column;
           gap: 1rem;
+          max-width: 100%;
+
+          @media screen and(min-width: 768px) {
+            max-width: calc(100% / 3 * 2);
+          }
 
           #img {
             width: 100%;
@@ -220,11 +269,16 @@ section#content {
 
         #small {
           width: 100%;
-          max-width: calc(100% / 3);
           display: flex;
-          flex-direction: column;
           gap: 2rem;
           justify-content: space-between;
+          max-width: 100%;
+          flex-direction: row;
+
+          @media screen and(min-width: 768px) {
+            max-width: calc(100% / 3);
+            flex-direction: column;
+          }
 
           .news {
             width: 100%;
@@ -284,22 +338,29 @@ section#content {
               width: 100%;
               list-style: none;
               font-weight: 500;
-              font-size: 1.2rem;
+              font-size: 1rem;
               padding: 0.5rem 0;
               border: 0.1rem solid #000;
               text-align: center;
               text-transform: uppercase;
               cursor: pointer;
+
+              @media screen and (min-width: 768px) {
+                font-size: 1.2rem;
+              }
             }
           }
         }
 
         .news {
           display: grid;
-          grid-template-columns: 1fr 2fr;
           gap: 2rem;
           width: 100%;
-          height: 15rem;
+          grid-template-columns: 1fr;
+
+          @media screen and(min-width: 768px) {
+            grid-template-columns: 1fr 2fr;
+          }
 
           #img {
             width: 100%;
@@ -347,8 +408,7 @@ section#content {
       width: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      // gap: 2rem;
+      gap: 2rem;
 
       .square {
         width: 100%;
@@ -371,6 +431,14 @@ section#content {
             height: 100%;
             object-fit: cover;
           }
+        }
+      }
+
+      .tablet-view-add {
+        display: none;
+
+        @media screen and (min-width: 768px) and (max-width: 1050px) {
+          display: flex;
         }
       }
 
@@ -442,12 +510,29 @@ section#content {
     #thumbnails {
       display: flex;
       gap: 1rem;
+      overflow-x: auto;
+
+      &::-webkit-scrollbar {
+        height: 0.5rem;
+        background: rgb(255, 255, 255);
+      }
+
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 1px rgba(255, 255, 255, 0);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #002868;
+        outline: 1px solid #ffffff;
+      }
 
       .thumbnail {
+        min-width: 10rem;
         width: 100%;
         height: 10rem;
         cursor: pointer;
         overflow: hidden;
+        margin-bottom: 0.5rem;
 
         &:hover {
           img {
@@ -465,7 +550,7 @@ section#content {
     }
   }
 
-  #foo {
+  #weather-section {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -478,8 +563,12 @@ section#content {
 
     #news-holder {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 2rem;
+
+      @media screen and(min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
 
       .bar {
         display: flex;
@@ -521,7 +610,7 @@ section#content {
     }
   }
 
-  #ace {
+  #food-section {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -535,8 +624,12 @@ section#content {
     #news-holder {
       width: 100%;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       gap: 2rem;
+
+      @media screen and(min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
       .bar {
         display: flex;
@@ -579,13 +672,22 @@ section#content {
   }
 
   footer {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
 
     background: #000;
     color: #fff;
     padding: 1rem;
+
+    @media screen and(min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media screen and(min-width: 1050px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
 
     .holder {
       display: flex;
@@ -600,9 +702,13 @@ section#content {
 
       ul {
         cursor: pointer;
-        display: flex;
+        display: none;
         flex-direction: column;
         gap: 1rem;
+
+        @media screen and(min-width: 768px) {
+          display: flex;
+        }
 
         li {
           font-size: 1.3rem;
